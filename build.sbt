@@ -9,6 +9,7 @@ lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     organization := "agents.scala.upskill",
+    PlayKeys.playDefaultPort := 8765,
     libraryDependencies ++= AppDependencies.compile ++ AppDependencies.test,
     scalacOptions += "-Wconf:src=routes/.*:s",
     pipelineStages := Seq(gzip),
