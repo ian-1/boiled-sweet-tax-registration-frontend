@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package controllers
+package controllers.details
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -22,27 +22,18 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
-import views.html.StartPage
 
-class StartControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
+class InventoryPercentageControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val startPage = app.injector.instanceOf[StartPage]
-  private val controller = new StartController(stubMessagesControllerComponents(), startPage)
+  private val controller = new InventoryPercentageController(stubMessagesControllerComponents())
 
-  private val fakeRequest = FakeRequest("GET", "/start")
+  private val fakeRequest = FakeRequest("GET", "/inventory-percentage")
 
-  "GET /start" should {
+  "GET /inventory-percentage" should {
     "return 200" in {
       val result = controller.show()(fakeRequest)
 
       status(result) shouldBe Status.OK
-    }
-
-    "return HTML" in {
-      val result = controller.show()(fakeRequest)
-
-      contentType(result) shouldBe Some("text/html")
-      charset(result) shouldBe Some("utf-8")
     }
   }
 }

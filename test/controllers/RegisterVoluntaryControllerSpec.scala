@@ -22,27 +22,18 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
-import views.html.StartPage
 
-class StartControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
+class RegisterVoluntaryControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val startPage = app.injector.instanceOf[StartPage]
-  private val controller = new StartController(stubMessagesControllerComponents(), startPage)
+  private val controller = new RegisterVoluntaryController(stubMessagesControllerComponents())
 
-  private val fakeRequest = FakeRequest("GET", "/start")
+  private val fakeRequest = FakeRequest("GET", "/register-voluntary")
 
-  "GET /start" should {
+  "GET /register-voluntary" should {
     "return 200" in {
       val result = controller.show()(fakeRequest)
 
       status(result) shouldBe Status.OK
-    }
-
-    "return HTML" in {
-      val result = controller.show()(fakeRequest)
-
-      contentType(result) shouldBe Some("text/html")
-      charset(result) shouldBe Some("utf-8")
     }
   }
 }
