@@ -4,4 +4,24 @@
 
 GET        /assets/*file            controllers.Assets.versioned(path = "/public", file: Asset)
 
-GET        /hello-world             controllers.HelloWorldController.hello()
+GET        /start                           controllers.StartController.show()
+GET        /intend-to-sell                  controllers.IntendToSellController.show()
+GET        /date-start-selling              controllers.DateStartSellingController.show()
+
+GET        /register-not-yet-required       controllers.RegisterNotYetRequiredController.show()
+GET        /register-not-required           controllers.RegisterNotRequiredController.show()
+GET        /register-not-chosen             controllers.RegisterNotChosenController.show()
+
+GET        /register-voluntary              controllers.RegisterVoluntaryController.show()
+GET        /register-mandatory              controllers.RegisterMandatoryController.show()
+
+GET        /business-name                   controllers.details.BusinessNameController.show()
+GET        /business-address                controllers.details.BusinessAddressController.show()
+GET        /business-telephone              controllers.details.BusinessTelephoneController.show()
+GET        /main-contact                    controllers.details.MainContactController.show()
+GET        /inventory-percentage            controllers.details.InventoryPercentageController.show()
+GET        /estimated-profit                controllers.details.EstimatedProfitController.show()
+GET        /rate-payable                    controllers.details.RatePayableController.show()
+
+GET        /check-answers                   controllers.details.CheckAnswersController.show()
+GET        /application-received            controllers.StartController.show()

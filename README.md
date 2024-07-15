@@ -12,7 +12,7 @@ This repository contains a Scala/Play microservice that allows a user to sign up
 
 It should then be listening on port 8765
 
-    browse http://localhost:8765/boiled-sweet-tax-registration/hello-world
+    browse http://localhost:8765/boiled-sweet-tax-registration/start
 
 ## License
 

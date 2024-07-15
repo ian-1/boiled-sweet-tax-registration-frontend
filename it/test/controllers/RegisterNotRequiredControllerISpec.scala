@@ -20,17 +20,17 @@ import org.jsoup.Jsoup
 import play.api.http.Status
 import utils.IntegrationSpecHelper
 
-class HelloWorldControllerISpec extends IntegrationSpecHelper {
+class RegisterNotRequiredControllerISpec extends IntegrationSpecHelper {
 
   "GET /" should {
     "return 200" in {
-      val result = get("/hello-world")
+      val result = get("/register-not-required")
 
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/hello-world")
+      val result = get("/register-not-required")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"
