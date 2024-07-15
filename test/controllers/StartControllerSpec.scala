@@ -26,8 +26,8 @@ import views.html.StartPage
 
 class StartControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val startPage = app.injector.instanceOf[StartPage]
-  private val controller = new StartController(stubMessagesControllerComponents(), startPage)
+  private val page = app.injector.instanceOf[StartPage]
+  private val controller = new StartController(stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/start")
 

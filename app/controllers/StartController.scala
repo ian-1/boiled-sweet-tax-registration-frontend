@@ -26,11 +26,10 @@ import scala.concurrent.Future
 @Singleton
 class StartController @Inject()(
   mcc: MessagesControllerComponents,
-  startPage: StartPage)
+  page: StartPage)
     extends FrontendController(mcc) {
 
   def show(): Action[AnyContent] = Action.async { implicit request =>
-    Future.successful(Ok(startPage()))
+    Future.successful(Ok(page()))
   }
-
 }

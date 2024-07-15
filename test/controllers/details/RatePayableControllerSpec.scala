@@ -22,10 +22,12 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import views.html.details.RatePayablePage
 
 class RatePayableControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val controller = new RatePayableController(stubMessagesControllerComponents())
+  private val page = app.injector.instanceOf[RatePayablePage]
+  private val controller = new RatePayableController(stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/rate-payable")
 
@@ -34,6 +36,13 @@ class RatePayableControllerSpec extends AnyWordSpec with Matchers with GuiceOneA
       val result = controller.show()(fakeRequest)
 
       status(result) shouldBe Status.OK
+    }
+
+    "return HTML" in {
+      val result = controller.show()(fakeRequest)
+
+      contentType(result) shouldBe Some("text/html")
+      charset(result) shouldBe Some("utf-8")
     }
   }
 }

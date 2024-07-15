@@ -22,10 +22,12 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import views.html.details.InventoryPercentagePage
 
 class InventoryPercentageControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val controller = new InventoryPercentageController(stubMessagesControllerComponents())
+  private val page = app.injector.instanceOf[InventoryPercentagePage]
+  private val controller = new InventoryPercentageController(stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/inventory-percentage")
 
@@ -34,6 +36,13 @@ class InventoryPercentageControllerSpec extends AnyWordSpec with Matchers with G
       val result = controller.show()(fakeRequest)
 
       status(result) shouldBe Status.OK
+    }
+
+    "return HTML" in {
+      val result = controller.show()(fakeRequest)
+
+      contentType(result) shouldBe Some("text/html")
+      charset(result) shouldBe Some("utf-8")
     }
   }
 }

@@ -18,17 +18,18 @@ package controllers.details
 
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
+import views.html.details.BusinessNamePage
 
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.Future
 
 @Singleton
 class BusinessNameController @Inject()(
-  mcc: MessagesControllerComponents)
+  mcc: MessagesControllerComponents,
+  page: BusinessNamePage)
     extends FrontendController(mcc) {
 
-  def show(): Action[AnyContent] = Action.async {
-    Future.successful(Ok)
+  def show(): Action[AnyContent] = Action.async { implicit request =>
+    Future.successful(Ok(page()))
   }
-
 }

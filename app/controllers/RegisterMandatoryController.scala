@@ -18,17 +18,18 @@ package controllers
 
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
+import views.html.RegisterMandatoryPage
 
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.Future
 
 @Singleton
 class RegisterMandatoryController @Inject()(
-  mcc: MessagesControllerComponents)
+  mcc: MessagesControllerComponents,
+  page: RegisterMandatoryPage)
     extends FrontendController(mcc) {
 
-  def show(): Action[AnyContent] = Action.async {
-    Future.successful(Ok)
+  def show(): Action[AnyContent] = Action.async { implicit request =>
+    Future.successful(Ok(page()))
   }
-
 }

@@ -22,10 +22,12 @@ import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import views.html.DateStartSellingPage
 
 class DateStartSellingControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val controller = new DateStartSellingController(stubMessagesControllerComponents())
+  private val page = app.injector.instanceOf[DateStartSellingPage]
+  private val controller = new DateStartSellingController(stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/date-start-selling")
 
@@ -34,6 +36,13 @@ class DateStartSellingControllerSpec extends AnyWordSpec with Matchers with Guic
       val result = controller.show()(fakeRequest)
 
       status(result) shouldBe Status.OK
+    }
+
+    "return HTML" in {
+      val result = controller.show()(fakeRequest)
+
+      contentType(result) shouldBe Some("text/html")
+      charset(result) shouldBe Some("utf-8")
     }
   }
 }

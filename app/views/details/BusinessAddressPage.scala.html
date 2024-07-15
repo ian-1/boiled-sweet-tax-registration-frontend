@@ -1,4 +1,4 @@
-/*
+@*
  * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,24 +12,19 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *@
 
-package controllers
+@this(layout: Layout)
 
-import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
-import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
-import views.html.IntendToSellPage
+@()(implicit request: Request[_], messages: Messages)
 
-import javax.inject.{Inject, Singleton}
-import scala.concurrent.Future
+@layout(pageTitle = "boiled-sweet-tax-registration-frontend") {
+    <h1 class="govuk-heading-xl">boiled-sweet-tax-registration-frontend</h1>
+    <p class="govuk-body">@{
+        messages("service.text")
+    }</p>
+}
 
-@Singleton
-class IntendToSellController @Inject()(
-  mcc: MessagesControllerComponents,
-  page: IntendToSellPage)
-    extends FrontendController(mcc) {
-
-  def show(): Action[AnyContent] = Action.async { implicit request =>
-    Future.successful(Ok(page()))
-  }
+@{
+    //$COVERAGE-OFF$
 }
