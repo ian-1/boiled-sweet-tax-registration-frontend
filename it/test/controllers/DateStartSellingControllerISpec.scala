@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class DateStartSellingControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/date-start-selling")
+  "GET /date-start-selling" should {
+    val result = get("/date-start-selling")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/date-start-selling")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

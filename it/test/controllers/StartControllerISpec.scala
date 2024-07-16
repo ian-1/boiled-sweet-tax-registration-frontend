@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class StartControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/start")
+  "GET /start" should {
+    val result = get("/start")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/start")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

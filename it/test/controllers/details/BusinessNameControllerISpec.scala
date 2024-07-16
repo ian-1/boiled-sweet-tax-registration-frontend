@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class BusinessNameControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/business-name")
+  "GET /business-name" should {
+    val result = get("/business-name")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/business-name")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

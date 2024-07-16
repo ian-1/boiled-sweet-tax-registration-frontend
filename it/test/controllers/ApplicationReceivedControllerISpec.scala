@@ -23,14 +23,13 @@ import utils.IntegrationSpecHelper
 class ApplicationReceivedControllerISpec extends IntegrationSpecHelper {
 
   "GET /application-received" should {
-    "return 200" in {
-      val result = get("/application-received")
+    val result = get("/application-received")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/application-received")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

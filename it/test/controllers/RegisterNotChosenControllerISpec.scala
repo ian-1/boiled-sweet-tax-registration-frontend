@@ -23,14 +23,13 @@ import utils.IntegrationSpecHelper
 class RegisterNotChosenControllerISpec extends IntegrationSpecHelper {
 
   "GET /register-not-chosen" should {
-    "return 200" in {
-      val result = get("/register-not-chosen")
+    val result = get("/register-not-chosen")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/register-not-chosen")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

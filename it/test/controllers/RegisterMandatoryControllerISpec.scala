@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class RegisterMandatoryControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/register-mandatory")
+  "GET /register-mandatory" should {
+    val result = get("/register-mandatory")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/register-mandatory")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

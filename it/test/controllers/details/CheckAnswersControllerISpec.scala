@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class CheckAnswersControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/check-answers")
+  "GET /check-answers" should {
+    val result = get("/check-answers")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/check-answers")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

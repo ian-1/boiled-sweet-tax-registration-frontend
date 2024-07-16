@@ -22,10 +22,10 @@ import utils.IntegrationSpecHelper
 
 class InventoryPercentageControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/inventory-percentage")
+  "GET /inventory-percentage" should {
+    val result = get("/inventory-percentage")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 

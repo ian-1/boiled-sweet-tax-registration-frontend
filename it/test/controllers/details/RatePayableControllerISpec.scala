@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class RatePayableControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/rate-payable")
+  "GET /rate-payable" should {
+    val result = get("/rate-payable")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/rate-payable")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

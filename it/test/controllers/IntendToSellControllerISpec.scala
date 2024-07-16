@@ -22,15 +22,14 @@ import utils.IntegrationSpecHelper
 
 class IntendToSellControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/intend-to-sell")
+  "GET /intend-to-sell" should {
+    val result = get("/intend-to-sell")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/intend-to-sell")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"

@@ -32,15 +32,13 @@ class RegisterNotYetRequiredControllerSpec extends AnyWordSpec with Matchers wit
   private val fakeRequest = FakeRequest("GET", "/register-not-yet-required")
 
   "GET /register-not-yet-required" should {
-    "return 200" in {
-      val result = controller.show()(fakeRequest)
+    val result = controller.show()(fakeRequest)
 
+    "return 200" in {
       status(result) shouldBe Status.OK
     }
 
     "return HTML" in {
-      val result = controller.show()(fakeRequest)
-
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
