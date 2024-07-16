@@ -42,5 +42,9 @@ class EstimatedProfitControllerSpec extends AnyWordSpec with Matchers with Guice
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
+
+    "return correct page" in {
+      contentAsString(result) should include("estimated-profit")
+    }
   }
 }

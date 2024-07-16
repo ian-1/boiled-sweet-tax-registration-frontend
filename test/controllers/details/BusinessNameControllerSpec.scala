@@ -42,5 +42,9 @@ class BusinessNameControllerSpec extends AnyWordSpec with Matchers with GuiceOne
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
+
+    "return correct page" in {
+      contentAsString(result) should include("business-name")
+    }
   }
 }

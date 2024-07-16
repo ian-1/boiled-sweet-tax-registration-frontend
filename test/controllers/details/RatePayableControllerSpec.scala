@@ -42,5 +42,9 @@ class RatePayableControllerSpec extends AnyWordSpec with Matchers with GuiceOneA
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
+
+    "return correct page" in {
+      contentAsString(result) should include("rate-payable")
+    }
   }
 }

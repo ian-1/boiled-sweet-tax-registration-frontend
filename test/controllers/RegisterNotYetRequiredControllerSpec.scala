@@ -42,5 +42,9 @@ class RegisterNotYetRequiredControllerSpec extends AnyWordSpec with Matchers wit
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
     }
+
+    "return correct page" in {
+      contentAsString(result) should include("register-not-yet-required")
+    }
   }
 }

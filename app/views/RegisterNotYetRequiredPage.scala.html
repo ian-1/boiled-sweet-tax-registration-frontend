@@ -18,7 +18,7 @@
 
 @()(implicit request: Request[_], messages: Messages)
 
-@layout(pageTitle = "boiled-sweet-tax-registration-frontend") {
+@layout(pageTitle = messages("register-not-yet-required.page-title") + messages("service.page-title-extension")) {
     <h1 class="govuk-heading-xl">boiled-sweet-tax-registration-frontend</h1>
     <p class="govuk-body">@{
         messages("service.text")
