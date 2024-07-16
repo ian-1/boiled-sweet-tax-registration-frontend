@@ -22,20 +22,19 @@ import utils.IntegrationSpecHelper
 
 class RegisterVoluntaryControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/register-voluntary")
+  "GET /register-voluntary" should {
+    val result = get("/register-voluntary")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/register-voluntary")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "boiled-sweet-tax-registration-frontend"
+      document.title shouldBe "Register Voluntary - Boiled Sweet Tax Registration - GOV.UK"
       document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
       document.select("p.govuk-body").text() shouldBe "This is your new service"
     }

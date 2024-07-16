@@ -22,22 +22,22 @@ import utils.IntegrationSpecHelper
 
 class RegisterNotChosenControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/register-not-chosen")
+  "GET /register-not-chosen" should {
+    val result = get("/register-not-chosen")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/register-not-chosen")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "boiled-sweet-tax-registration-frontend"
-      document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
-      document.select("p.govuk-body").text() shouldBe "This is your new service"
+      document.title shouldBe "Chosen Not To Register - Boiled Sweet Tax Registration - GOV.UK"
+      document.select("h1").text() shouldBe "You have chosen not to register for Boiled Sweet Tax"
+      document.select("h2").not(".govuk-visually-hidden").text() shouldBe "What if my details change"
+      document.select("p.govuk-body").text() shouldBe "If any of the details you provided change you can re-use this service to determine your requirement to register for Boiled Sweet Tax"
     }
   }
 

@@ -32,17 +32,19 @@ class EstimatedProfitControllerSpec extends AnyWordSpec with Matchers with Guice
   private val fakeRequest = FakeRequest("GET", "/estimated-profit")
 
   "GET /estimated-profit" should {
-    "return 200" in {
-      val result = controller.show()(fakeRequest)
+    val result = controller.show()(fakeRequest)
 
+    "return 200" in {
       status(result) shouldBe Status.OK
     }
 
     "return HTML" in {
-      val result = controller.show()(fakeRequest)
-
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
+    }
+
+    "return correct page" in {
+      contentAsString(result) should include("estimated-profit")
     }
   }
 }

@@ -22,10 +22,10 @@ import utils.IntegrationSpecHelper
 
 class InventoryPercentageControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/inventory-percentage")
+  "GET /inventory-percentage" should {
+    val result = get("/inventory-percentage")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
@@ -35,7 +35,7 @@ class InventoryPercentageControllerISpec extends IntegrationSpecHelper {
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "boiled-sweet-tax-registration-frontend"
+      document.title shouldBe "Inventory Percentage - Boiled Sweet Tax Registration - GOV.UK"
       document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
       document.select("p.govuk-body").text() shouldBe "This is your new service"
     }

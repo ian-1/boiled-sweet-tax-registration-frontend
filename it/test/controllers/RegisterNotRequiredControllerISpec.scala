@@ -22,20 +22,19 @@ import utils.IntegrationSpecHelper
 
 class RegisterNotRequiredControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
-    "return 200" in {
-      val result = get("/register-not-required")
+  "GET /register-not-required" should {
+    val result = get("/register-not-required")
 
+    "return 200" in {
       result.status shouldBe Status.OK
     }
 
     "return the correct view" in {
-      val result = get("/register-not-required")
       val document = Jsoup.parse(result.body)
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "boiled-sweet-tax-registration-frontend"
+      document.title shouldBe "Register Not Required - Boiled Sweet Tax Registration - GOV.UK"
       document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
       document.select("p.govuk-body").text() shouldBe "This is your new service"
     }

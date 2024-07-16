@@ -1,6 +1,52 @@
-service = Boiled Sweet Tax Registration
+service.page-title-extension = ' - Boiled Sweet Tax Registration - GOV.UK'
 service.text = This is your new service
 
-application-received.title = Your application to register for Boiled Sweet Tax has been received
+#---
+
+start.page-title = Sell Boiled Sweets
+
+intend-to-sell.page-title = Intend To Sell
+
+date-start-selling.page-title = Date Start Selling
+
+#---
+
+register-not-yet-required.page-title = Register Not Yet Required
+
+register-not-required.page-title = Register Not Required
+
+register-not-chosen.page-title = Chosen Not To Register
+register-not-chosen.h1 = You have chosen not to register for Boiled Sweet Tax
+register-not-chosen.h2 = What if my details change
+register-not-chosen.p1 = If any of the details you provided change you can re-use this service to determine your requirement to register for Boiled Sweet Tax
+
+#---
+
+register-voluntary.page-title = Register Voluntary
+
+register-mandatory.page-title = Register Mandatory
+
+#---
+
+business-name.page-title = Business Name
+
+business-address.page-title = Business Address
+
+business-telephone.page-title = Business Telephone
+
+main-contact.page-title = Main Contact
+
+inventory-percentage.page-title = Inventory Percentage
+
+estimated-profit.page-title = Estimated Profit
+
+rate-payable.page-title = Rate Payable
+
+#---
+
+check-answers.page-title = Check Answers
+
+application-received.page-title = Application Received
+application-received.h1 = Your application to register for Boiled Sweet Tax has been received
 application-received.h2 = What happens next
 application-received.p1 = We’ll review your registration application and respond to your supplied email within 3 weeks

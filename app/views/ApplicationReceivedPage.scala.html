@@ -23,11 +23,11 @@
 
 @()(implicit request: Request[_], messages: Messages)
 
-@layout(pageTitle = messages("service")) {
+@layout(pageTitle = messages("application-received.page-title") + messages("service.page-title-extension")) {
 
     @govukPanel(
         Panel(
-            title = Text(messages("application-received.title"))
+            title = Text(messages("application-received.h1"))
         )
     )
     @h2("application-received.h2")

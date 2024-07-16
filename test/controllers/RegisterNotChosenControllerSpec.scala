@@ -20,29 +20,34 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
+import play.api.i18n.{Lang, Messages, MessagesApi}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import views.html.RegisterNotChosenPage
 
 class RegisterNotChosenControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
+  private val messagesApi = app.injector.instanceOf[MessagesApi]
+  implicit val messages: Messages = messagesApi.preferred(Seq.empty[Lang])
   private val page = app.injector.instanceOf[RegisterNotChosenPage]
   private val controller = new RegisterNotChosenController(stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/register-not-chosen")
 
   "GET /register-not-chosen" should {
-    "return 200" in {
-      val result = controller.show()(fakeRequest)
+    val result = controller.show()(fakeRequest)
 
+    "return 200" in {
       status(result) shouldBe Status.OK
     }
 
     "return HTML" in {
-      val result = controller.show()(fakeRequest)
-
       contentType(result) shouldBe Some("text/html")
       charset(result) shouldBe Some("utf-8")
+    }
+
+    "return correct page" in {
+      contentAsString(result) should include("register-not-chosen")
     }
   }
 }
