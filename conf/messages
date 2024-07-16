@@ -1,2 +1,6 @@
-service.name = boiled-sweet-tax-registration-frontend
+service = Boiled Sweet Tax Registration
 service.text = This is your new service
+
+application-received.title = Your application to register for Boiled Sweet Tax has been received
+application-received.h2 = What happens next
+application-received.p1 = We’ll review your registration application and respond to your supplied email within 3 weeks

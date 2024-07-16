@@ -22,7 +22,7 @@ import utils.IntegrationSpecHelper
 
 class ApplicationReceivedControllerISpec extends IntegrationSpecHelper {
 
-  "GET /" should {
+  "GET /application-received" should {
     "return 200" in {
       val result = get("/application-received")
 
@@ -35,9 +35,10 @@ class ApplicationReceivedControllerISpec extends IntegrationSpecHelper {
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "boiled-sweet-tax-registration-frontend"
-      document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
-      document.select("p.govuk-body").text() shouldBe "This is your new service"
+      document.title shouldBe "Boiled Sweet Tax Registration"
+      document.select("h1").text() shouldBe "Your application to register for Boiled Sweet Tax has been received"
+      document.select("h2").not(".govuk-visually-hidden").text() shouldBe "What happens next"
+      document.select("p.govuk-body").text() shouldBe "We’ll review your registration application and respond to your supplied email within 3 weeks"
     }
   }
 

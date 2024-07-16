@@ -14,26 +14,15 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
-@import views.html.components._
+@this()
 
-@this(layout: Layout,
-        h2: h2, p: p,
-        govukPanel: GovukPanel)
+@(
+    key: String,
+    size: String = "m",
+    classes: Option[String] = None,
+    id: Option[String] = None
+)(implicit msgs: Messages)
 
-@()(implicit request: Request[_], messages: Messages)
+@cls = @{s"govuk-heading-$size ".concat(classes.getOrElse(""))}
 
-@layout(pageTitle = messages("service")) {
-
-    @govukPanel(
-        Panel(
-            title = Text(messages("application-received.title"))
-        )
-    )
-    @h2("application-received.h2")
-    @p("application-received.p1")
-}
-
-@{
-    //$COVERAGE-OFF$
-}
+<h2 class ="@cls" @id.map(i => { s"id =${i}"})>@Html(msgs(key))</h2>
