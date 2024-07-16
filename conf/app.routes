@@ -24,4 +24,4 @@ GET        /estimated-profit                controllers.details.EstimatedProfitC
 GET        /rate-payable                    controllers.details.RatePayableController.show()
 
 GET        /check-answers                   controllers.details.CheckAnswersController.show()
-GET        /application-received            controllers.StartController.show()
+GET        /application-received            controllers.ApplicationReceivedController.show()
