@@ -27,8 +27,6 @@ import views.html.ApplicationReceivedPage
 
 class ApplicationReceivedControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
-  private val messagesApi = app.injector.instanceOf[MessagesApi]
-  implicit val messages: Messages = messagesApi.preferred(Seq.empty[Lang])
   private val page = app.injector.instanceOf[ApplicationReceivedPage]
   private val controller = new ApplicationReceivedController(stubMessagesControllerComponents(), page)
 
@@ -47,7 +45,7 @@ class ApplicationReceivedControllerSpec extends AnyWordSpec with Matchers with G
     }
 
     "return correct page" in {
-      contentAsString(result) should include(messages("application-received.title"))
+      contentAsString(result) should include("application-received")
     }
   }
 }

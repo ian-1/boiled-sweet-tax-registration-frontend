@@ -35,7 +35,7 @@ class ApplicationReceivedControllerISpec extends IntegrationSpecHelper {
 
       result.contentType shouldBe "text/html; charset=UTF-8"
 
-      document.title shouldBe "Boiled Sweet Tax Registration"
+      document.title shouldBe "Application Received - Boiled Sweet Tax Registration - GOV.UK"
       document.select("h1").text() shouldBe "Your application to register for Boiled Sweet Tax has been received"
       document.select("h2").not(".govuk-visually-hidden").text() shouldBe "What happens next"
       document.select("p.govuk-body").text() shouldBe "We’ll review your registration application and respond to your supplied email within 3 weeks"
