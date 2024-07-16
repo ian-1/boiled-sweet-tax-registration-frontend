@@ -14,16 +14,25 @@
  * limitations under the License.
  *@
 
-@this(layout: Layout)
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import views.html.components._
+
+@this(layout: Layout,
+        h2: h2, p: p,
+        govukPanel: GovukPanel)
 
 @()(implicit request: Request[_], messages: Messages)
 
-@layout(pageTitle = "boiled-sweet-tax-registration-frontend") {
-    <h1 class="govuk-heading-xl">boiled-sweet-tax-registration-frontend</h1>
-    <p class="govuk-body">@{
-        messages("service.text")
-    }</p>
-}
+    @layout(pageTitle = messages("register-not-chosen.page-title") + messages("service.page-title-extension")) {
+
+        @govukPanel(
+            Panel(
+                title = Text(messages("register-not-chosen.h1"))
+            )
+        )
+        @h2("register-not-chosen.h2")
+        @p("register-not-chosen.p1")
+    }
 
 @{
     //$COVERAGE-OFF$

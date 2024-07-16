@@ -1,6 +1,11 @@
 service.page-title-extension = ' - Boiled Sweet Tax Registration - GOV.UK'
 service.text = This is your new service
 
+register-not-chosen.page-title = Chosen Not To Register
+register-not-chosen.h1 = You have chosen not to register for Boiled Sweet Tax
+register-not-chosen.h2 = What if my details change
+register-not-chosen.p1 = If any of the details you provided change you can re-use this service to determine your requirement to register for Boiled Sweet Tax
+
 application-received.page-title = Application Received
 application-received.h1 = Your application to register for Boiled Sweet Tax has been received
 application-received.h2 = What happens next

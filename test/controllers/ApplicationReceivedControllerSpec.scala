@@ -20,7 +20,6 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.http.Status
-import play.api.i18n.{Lang, Messages, MessagesApi}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import views.html.ApplicationReceivedPage
