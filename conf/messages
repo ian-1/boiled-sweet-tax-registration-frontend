@@ -12,6 +12,9 @@ date-start-selling.page-title = Date Start Selling
 #---
 
 register-not-yet-required.page-title = Register Not Yet Required
+register-not-yet-required.h1 = You do not need to register for Boiled Sweet Tax until the 1st January 2025
+register-not-yet-required.content = You can register now voluntarily if you would like to
+register-not-yet-required.a = Click here to register now voluntarily
 
 register-not-required.page-title = Register Not Required
 register-not-required.h1 = You are not required to register for Boiled Sweet Tax
@@ -28,6 +31,8 @@ register-not-chosen.p1 = If any of the details you provided change you can re-us
 register-voluntary.page-title = Register Voluntary
 
 register-mandatory.page-title = Register Mandatory
+register-mandatory.h1 = You need to register for Boiled Sweet Tax
+register-mandatory.a = Click here to start registration
 
 #---
 
