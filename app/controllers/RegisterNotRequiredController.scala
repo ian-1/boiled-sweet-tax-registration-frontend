@@ -16,6 +16,7 @@
 
 package controllers
 
+import config.AppConfig
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.RegisterNotRequiredPage
@@ -25,11 +26,12 @@ import scala.concurrent.Future
 
 @Singleton
 class RegisterNotRequiredController @Inject()(
+  appConfig: AppConfig,
   mcc: MessagesControllerComponents,
   page: RegisterNotRequiredPage)
     extends FrontendController(mcc) {
 
   def show(): Action[AnyContent] = Action.async { implicit request =>
-    Future.successful(Ok(page()))
+    Future.successful(Ok(page(s"${appConfig.getExternalUrl()}/register-voluntary")))
   }
 }

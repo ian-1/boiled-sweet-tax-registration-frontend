@@ -14,6 +14,9 @@ date-start-selling.page-title = Date Start Selling
 register-not-yet-required.page-title = Register Not Yet Required
 
 register-not-required.page-title = Register Not Required
+register-not-required.h1 = You are not required to register for Boiled Sweet Tax
+register-not-required.content = You can still register voluntarily if you would like to
+register-not-required.a = Click here to register voluntarily
 
 register-not-chosen.page-title = Chosen Not To Register
 register-not-chosen.h1 = You have chosen not to register for Boiled Sweet Tax

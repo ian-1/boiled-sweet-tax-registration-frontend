@@ -1,4 +1,4 @@
-/*
+@*
  * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,23 +12,25 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *@
 
-package config
+@this()
 
-import play.api.Configuration
+@(
+    key: String,
+    href: String,
+    id: Option[String] = None,
+    attrs: Map[String, String] = Map.empty,
+    openInNewWindow: Boolean = false,
+    classes: Option[String] = None,
+    addStandardClasses: Boolean = true,
+)(implicit msgs: Messages)
 
-import javax.inject.{Inject, Singleton}
+@cls = @{classes.getOrElse("").concat(if(addStandardClasses)" govuk-link govuk-body" else "")}
 
-@Singleton
-class AppConfig @Inject()(config: Configuration) {
-  val welshLanguageSupportEnabled: Boolean = config.getOptional[Boolean]("features.welsh-language-support").getOrElse(false)
-
-  def getExternalUrl() = {
-    val key = "microservice.services.boiled-sweet-tax-frontend.external-url"
-    config
-      .getOptional[String](key)
-      .getOrElse(throw new RuntimeException(s"config $key not found"))
-  }
-
-}
+<a href="@href" class="@cls"
+    @if(id.nonEmpty){id="@id"}
+    @if(openInNewWindow){
+        target="_blank" rel="noreferrer noopener"
+    }
+    @attrs.map(a => a._1 + "=" + a._2 + " ")>@Html(msgs(key))</a>
