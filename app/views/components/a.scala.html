@@ -14,24 +14,23 @@
  * limitations under the License.
  *@
 
-@import uk.gov.hmrc.govukfrontend.views.html.components._
-@import views.html.components._
+@this()
 
-@this(layout: Layout,
-        a: a, govukPanel: GovukPanel)
+@(
+    key: String,
+    href: String,
+    id: Option[String] = None,
+    attrs: Map[String, String] = Map.empty,
+    openInNewWindow: Boolean = false,
+    classes: Option[String] = None,
+    addStandardClasses: Boolean = true,
+)(implicit msgs: Messages)
 
-@(href: String)(implicit request: Request[_], messages: Messages)
+@cls = @{classes.getOrElse("").concat(if(addStandardClasses)" govuk-link govuk-body" else "")}
 
-@layout(pageTitle = messages("register-mandatory.page-title") + messages("service.page-title-extension")) {
-
-    @govukPanel(
-        Panel(
-            title = Text(messages("register-mandatory.h1"))
-        )
-    )
-    @a(messages("register-mandatory.a"), href)
-}
-
-@{
-    //$COVERAGE-OFF$
-}
+<a href="@href" class="@cls"
+    @if(id.nonEmpty){id="@id"}
+    @if(openInNewWindow){
+        target="_blank" rel="noreferrer noopener"
+    }
+    @attrs.map(a => a._1 + "=" + a._2 + " ")>@Html(msgs(key))</a>

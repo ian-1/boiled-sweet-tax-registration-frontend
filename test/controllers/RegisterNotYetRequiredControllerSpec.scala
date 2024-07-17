@@ -16,6 +16,7 @@
 
 package controllers
 
+import config.AppConfig
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
@@ -27,7 +28,8 @@ import views.html.RegisterNotYetRequiredPage
 class RegisterNotYetRequiredControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite {
 
   private val page = app.injector.instanceOf[RegisterNotYetRequiredPage]
-  private val controller = new RegisterNotYetRequiredController(stubMessagesControllerComponents(), page)
+  private val appConfig = app.injector.instanceOf[AppConfig]
+  private val controller = new RegisterNotYetRequiredController(appConfig, stubMessagesControllerComponents(), page)
 
   private val fakeRequest = FakeRequest("GET", "/register-not-yet-required")
 

@@ -35,8 +35,9 @@ class RegisterMandatoryControllerISpec extends IntegrationSpecHelper {
       result.contentType shouldBe "text/html; charset=UTF-8"
 
       document.title shouldBe "Register Mandatory - Boiled Sweet Tax Registration - GOV.UK"
-      document.select("h1").text() shouldBe "boiled-sweet-tax-registration-frontend"
-      document.select("p.govuk-body").text() shouldBe "This is your new service"
+      document.select(".govuk-panel").select("h1").text() shouldBe "You need to register for Boiled Sweet Tax"
+      document.select("a").select(".govuk-body").text() shouldBe "Click here to start registration"
+      document.select("a").select(".govuk-body").attr("href") shouldBe "http://localhost:8765/boiled-sweet-tax-registration/business-name"
     }
   }
 

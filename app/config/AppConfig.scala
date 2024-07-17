@@ -24,4 +24,11 @@ import javax.inject.{Inject, Singleton}
 class AppConfig @Inject()(config: Configuration) {
   val welshLanguageSupportEnabled: Boolean = config.getOptional[Boolean]("features.welsh-language-support").getOrElse(false)
 
+  def getExternalUrl() = {
+    val key = "microservice.services.boiled-sweet-tax-frontend.external-url"
+    config
+      .getOptional[String](key)
+      .getOrElse(throw new RuntimeException(s"config $key not found"))
+  }
+
 }
